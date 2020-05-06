@@ -1,64 +1,96 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <title>Web Store</title>
+    <!--font awesome-->
+    <script src="https://kit.fontawesome.com/ae75768ba9.js" crossorigin="anonymous"></script>
+    <!--custom css-->
     <link rel="stylesheet" href="style.css">
-    <title>Ecommerce</title>
 </head>
 <body>
-    <header>
-        <h1>Online Shooping</h1>
-        <nav>
-            <h2>SHOP</h2>
-            <ul class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">Sobre Nós</a></li>
-                <li class="cart">
-                    <a href="cart.html">
-                        <ion-icon name="basket"></ion-icon>Carrinho<span>0</span>
-                    </a>
-                </li>
-                
-            </ul>
-        </nav>
+    <!--NavBAR-->
+    <nav class="navbar">
+        <div class="navbar-center">
+            <span class="nav-icon">
+                <i class="fas fa-bars"></i>
+            </span>
+            <img src="./images/logo.svg" alt="" srcset="">
+            <div class="cart-btn">
+                <span class="nav-icon">
+                    <i class="fas fa-cart-plus"></i>
+                </span>
+                <div class="cart-items">0</div>
+            </div>
+            
+        </div>
+    </nav>
+    <!--END OF NAVBAR-->
+    <!--HERO-->
+    <header class="hero">
+        <div class="banner">
+            <h1 class="banner-title">MY STORE</h1>
+            <button class="banner-btn">Compre Agora</button>
+        </div>
     </header>
-    <div class="container">
-        <div class="image">
-            <img src="./imagens/tshirt1.jpg" alt="camisa">
-            <h3>Nasa tshirt</h3>
-            <h3>R$15,00</h3>
-            <a  class="add-cart cart1" href="#">Adicionar ao Carrinho</a>
-            
+    <!--END OF HERO-->
+
+    <!--PRODUCTS-->
+    <section class="products">
+        <div class="section-title">
+            <h2>our product</h2>
         </div>
-        <div class="image">
-            <img src="./imagens/white.jpg" alt="camisa">
-            <h3>White tshirt</h3>
-            <h3>R$20,00</h3>
-            <a  class="add-cart cart2" href="#"  >Adicionar ao Carrinho</a>
-            
-        </div>
-        <div class="image">
-            <img src="./imagens/blue.jpg" alt="camisa">
-            <h3>Blue tshirt</h3>
-            <h3>R$25,00</h3>
-            <a  class="add-cart cart3" href="#"  >Adicionar ao Carrinho</a>
-            
-        </div><div class="image">
-            <img src="./imagens/black.jpg" alt="camisa">
-            <h3>Black tshirt</h3>
-            <h3>R$18,00</h3>
-            <a  class="add-cart cart4" href="#"  >Adicionar ao Carrinho</a>
-           
+        <div class="products-center">
+            <!--Single Product-->
+            <article class="product">
+                <div class="img-container">
+                    <img src="./images/product-1.jpeg" alt="product"
+                    class="product-img">
+                    <button class="bag-btn" data-id="1">
+                        <i class="fas fa-shopping-cart"></i> 
+                        adicionar ao carrinho
+                    </button>
+                </div>
+                <h3>Cama King</h3>
+                <h4>$240</h4>
+            </article>
+        <!-- END of Single Product-->
+            </div>
+    </section>
+    <!--END OF PRODUCTS-->
+    <!-- CART-->
+    <div class="cart-overlay">
+        <div class="cart">
+            <span class="close-cart">
+                <i class="fas fa-window-close"></i>
+            </span>
+            <h2>Seu Carrinho</h2>
+            <div class="cart-content">
+                <!--CART ITEM-->
+                <div class="cart-item">
+                    <img src="./images/product-1.jpeg" alt="product1">
+                    <div>
+                        <h4>Cama King</h4>
+                        <h5>$230</h5>
+                        <span class="remove-item">remove</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-chevron-up"></i>
+                            <p class="item-amount">1</p>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <!--END OF CART ITEM-->
+            </div>
+            <div class="cart-footer">
+                <h3>Total: $ <span class="cart-total">0</span></h3>
+                <button class="clear-cart banner-btn">Limpar carrinho</button>
+            </div>
         </div>
     </div>
-    
-
-
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-    <script src="./main.js"></script>
-    
+    <!-- END OF CART-->
+    <script src="./app.js"></script>
 </body>
 </html>
