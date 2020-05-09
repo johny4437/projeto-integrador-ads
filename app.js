@@ -62,29 +62,65 @@ displayProducts(products){
         const buttons = [...document.querySelectorAll('.bag-btn')];
         buttons.forEach(button=>{
             let id = button.dataset.id;
-            let inCart = cart.find(item => item.id === id);
+            let inCart = cart.find(item => item.id == id);
             if(inCart){
-                button.innerText ="In Cart";
+                button.innerText ="No carrinho";
                 button.disabled = true;
             }
-                button.addEventListener('click',(event)=>{
+                button.addEventListener("click", event=>{
                     event.target.innerText = "No Carrinho";
                     event.target.disabled = true;
                     // get product from Products
-                    let cartItem = Storage.getProduct(id);
-                    console.log(cartItem);
-                    
+                    let cartItem = {...Storage.getProduct(id), amount:1};
                     // add products to the cart
+                    cart = [...cart, cartItem];
                     // save cart on local storage
-
+                    Storage.saveCart(cart);
                     // set cart values
+                    this.setCartValues(cart)
                     // Display cart Itens
+                    this.addCartItem(cartItem)
                     // Show the cart
+                    this.showCart(cartItem)
                 });
             
             
         })
     }
+    setCartValues(cart){
+        let tempTotal = 0;
+        let itemsTotal = 0;
+        cart.map(item =>{
+            tempTotal += item.price * item.amount;
+            itemsTotal += item.amount;
+        });
+        cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
+        cartItems.innerText = itemsTotal;
+    }
+    addCartItem(item){
+        const div = document.createElement('div')
+        div.classList.add('cart-item')
+        div.innerHTML = `
+            <img src="${item.img}" alt="product1">
+            <div>
+                <h4>${item.title}</h4>
+                <h5>$${item.price},00</h5>
+                <span class="remove-item" data-id=${item.id}>remove</span>
+            </div>
+            <div>
+                <i class="fas fa-chevron-up" data-id=${item.id}></i>
+                <p class="item-amount">${item.amount}</p>
+                <i class="fas fa-chevron-down" data-id=${item.id}></i>
+            </div>`;
+
+            cartContent.appendChild(div);
+            
+    }
+    showCart(){
+        cartOverlay.classList.add('transparentBcg');
+        cartDOM.classList.add('showCart');
+    }
+   
 }
 // local Storage
 class Storage{
@@ -93,7 +129,10 @@ class Storage{
     }
     static getProduct(id){
         let products = JSON.parse(localStorage.getItem('products'));
-        return products.find(product => products.id === id);
+        return products.find(product => product.id === id);
+    }
+    static saveCart(cart){
+        localStorage.setItem('cart', JSON.stringify(cart));
     }
 
 }
