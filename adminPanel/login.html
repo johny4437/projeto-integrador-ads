@@ -3,14 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
     <title>Login</title>
 </head>
 <body>
-    <div class="container">
-       <label for="">USERNAME</label>
-       <input type="text">
-       <label for="">SENHA</label>
-       <input type="text">
-    </div>
+   <div class="loginbox">
+       <img src="../images/loginP.png" class="avatar">
+       <h1>Login Here</h1>
+       <form method="POST" >
+           <p>Username</p>
+           <input type="text" id="username" placeholder="Digite o seu Usuário">
+           <p>Senha</p>
+           <input type="password"  id="password" placeholder="Digite a sua senha">
+           <input type="button" id="submit" value="Login" onclick="validate()">
+       </form>
+   </div>
+   <script src="./login.js"></script>
 </body>
 </html>

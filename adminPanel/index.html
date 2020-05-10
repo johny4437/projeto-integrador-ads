@@ -3,37 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./style.css">
     <title>ADMIN DASHBOARD|| POR FAVOR FAÇA LOGIN</title>
 </head>
 <body>
-    <div id="container">
-    <!-- The sidebar -->
-
-        <div class="sidebar">
-            <div id="logo">
-                Admin <span>Panel</span>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                Admin<span>Panel</span>
             </div>
-            <ul >
-                <li><a class="active" href="#home">Home</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#news">News</a></li>
-    
-            </ul>            
-            
-            
-        </div>
-  
-  <!-- Page content -->
-  <div class="content">
-    <form>
+            <ul id="menu">
+                <li><a href=""><i class="fa fa-fw fa-home"></i>Home</a></li>
+                <li><a onclick="changeUrl()"><i class="fa fa-product-hunt"></i>Produtos</a></li>
+                <li><a href=""><i class="fa fa-fw fa-user"></i>Clientes</a></li>
+                <li><a href=""><i class="fa fa-fw fa-wrench"></i>Serviços</a></li>
+                <li><a href=""><i class="fa fa-fw fa-envelope"></i>Contatos</a></li>
+            </ul>
+        </nav>
+        <header>
+            <div id="links">
+                <a href=""><i class="fas fa-sign-out-alt"></i>Logout</a>
+            </div>
+            <div id="content">
+                <iframe name="iFrameName"></iframe>
+            </div>
+        </header>
 
-    </form>
-  </div>
 
-    </div>
+
     
+    
+    </div>    
     <script src="./admin.js"></script>
 </body>
 </html>
